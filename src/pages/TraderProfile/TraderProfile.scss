@@ -1,0 +1,64 @@
+.main--div{
+    display: flex;
+    gap: 20px;
+   width: 100%; 
+   flex-direction: column;
+    .top{
+        flex: 1;
+
+        .personail--info--form{
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                padding: 20px;
+
+            .info--main{
+
+                p{
+                    font-weight: 400;
+                    font-size: 20px;
+                    text-transform: capitalize;
+                    padding: 20px;
+                }
+            }
+        }
+
+        .list{
+            display: flex;
+            gap: 20px;
+            padding: 10px;
+            flex-direction: row;
+            width: 100%;
+            height: fit-content ;
+            
+            .select{
+                padding: 15px 25px;
+                background: white;
+                color: black;
+                border-radius: 10px;
+                cursor: pointer;
+                width: 30%;
+
+            }
+        }
+    }
+
+    .bottom{
+       flex: 1;
+
+       .Admin--Actions{
+        padding: 20px;
+            form{
+                padding: 10px;
+                display: flex;
+                gap: 20px;
+                button{
+                    width: 20%;
+                    height: 30%;
+                    padding: 15px;
+                    cursor: pointer;
+                }
+            }
+       }
+    }
+}
