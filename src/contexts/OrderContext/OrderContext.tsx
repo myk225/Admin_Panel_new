@@ -5,13 +5,13 @@ export const OrderContext=createContext({});
 export const OrderContextProvider=({children})=>{
     const [orders,setOrders]=useState([]);
     async function LoadOrders(){
-        const response=await fetch(`http://localhost:3500/admin/orders`,{
+        const response=await fetch(`http://191.101.14.6:3500/admin/orders`,{
             method:"GET",});
             const {data}=await response.json();
             setOrders(data);
     }
     async function assignOrders(inputs){
-        const response=await fetch(`http://localhost:3500/admin/assign-order`,{
+        const response=await fetch(`http://191.101.14.6:3500/admin/assign-order`,{
             method: "PATCH",
             mode : "cors",
             headers:{

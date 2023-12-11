@@ -12,7 +12,7 @@ export const TraderRegister = () => {
     }
   const handleSubmit=async(e)=>{
       e.preventDefault();
-      const response=await fetch(`http://localhost:3500/provider/trader/register`,{
+      const response=await fetch(`http://191.101.14.6:3500/provider/trader/register`,{
         method:"POST",
         headers:{
           "Content-Type" : "application/json"

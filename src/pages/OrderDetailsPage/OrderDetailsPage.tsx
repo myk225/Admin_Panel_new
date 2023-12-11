@@ -42,7 +42,7 @@ export const OrderDetailsPage = (props:Props) => {
                 <div className="details--item order--services">
                     <h2>Order Services (4)</h2>
                     <div className="orderservice--item">
-                        <img src="http://localhost:3500/public/images/categories/image-1700311874078.avif" alt="" />
+                        <img src="http://191.101.14.6:3500/public/images/categories/image-1700311874078.avif" alt="" />
                         <div className=''>
                         <p><span>service name : </span> Ac services</p>
                         <p><span>purchased price</span> 300</p>
@@ -51,7 +51,7 @@ export const OrderDetailsPage = (props:Props) => {
                         </div>
                     </div>
                     <div className="orderservice--item">
-                        <img src="http://localhost:3500/public/images/categories/image-1700311874078.avif" alt="" />
+                        <img src="http://191.101.14.6:3500/public/images/categories/image-1700311874078.avif" alt="" />
                         <div className=''>
                         <p><span>service name : </span> Ac services</p>
                         <p><span>purchased price</span> 300</p>
@@ -60,7 +60,7 @@ export const OrderDetailsPage = (props:Props) => {
                         </div>
                     </div>
                     <div className="orderservice--item">
-                        <img src="http://localhost:3500/public/images/categories/image-1700311874078.avif" alt="" />
+                        <img src="http://191.101.14.6:3500/public/images/categories/image-1700311874078.avif" alt="" />
                         <div className=''>
                         <p><span>service name : </span> Ac services</p>
                         <p><span>purchased price</span> 300</p>
@@ -69,7 +69,7 @@ export const OrderDetailsPage = (props:Props) => {
                         </div>
                     </div>
                     <div className="orderservice--item">
-                        <img src="http://localhost:3500/public/images/categories/image-1700311874078.avif" alt="" />
+                        <img src="http://191.101.14.6:3500/public/images/categories/image-1700311874078.avif" alt="" />
                         <div className=''>
                         <p><span>service name : </span> Ac services</p>
                         <p><span>purchased price</span> 300</p>

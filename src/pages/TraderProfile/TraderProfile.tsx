@@ -27,7 +27,7 @@ export const TraderProfile = () => {
     const modalRef=useRef(null);
 
     async function fetchTraderDetails(){
-        const response=await fetch(`http://localhost:3500/fetchTraderDetails/${id}`);
+        const response=await fetch(`http://191.101.14.6:3500/fetchTraderDetails/${id}`);
 
       const res=await response.json();
       console.log()
@@ -103,7 +103,7 @@ export const TraderProfile = () => {
 
       <div ref={modalRef} id="docModalBody" className="modal" style={{width : "80vw",height:"95vh",overflow:"scroll"} }>
        <span className="close" onClick={()=>setOpen2(false)}>X</span>
-       <img src="http://localhost:3500/uploads/docs_verify_4/4-verification.png" alt="" />
+       <img src="http://191.101.14.6:3500/uploads/docs_verify_4/4-verification.png" alt="" />
       </div>
 
             </div>
@@ -114,7 +114,7 @@ export const TraderProfile = () => {
             
           <div ref={modalRef} id="docModalBody" className="modal" style={{width : "80vw",height:"95vh",overflow:"scroll"} }>
           <span className="close" onClick={()=>setOpen3(false)}>X</span>
-          <img src="http://localhost:3500/uploads/docs_verify_4/4-verification.png" alt="" />
+          <img src="http://191.101.14.6:3500/uploads/docs_verify_4/4-verification.png" alt="" />
          </div>
          </div>
         }

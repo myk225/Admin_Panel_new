@@ -137,7 +137,7 @@ export const Orders = () => {
   const [open,setOpen]=useState(false);
   const [traders,setTraders]=useState([]);
   const getTraders=async()=>{
-    const response=await fetch(`http://localhost:3500/getAllTraders`);
+    const response=await fetch(`http://191.101.14.6:3500/getAllTraders`);
     const res=await response.json();
     setTraders(res.alltraders);
   }

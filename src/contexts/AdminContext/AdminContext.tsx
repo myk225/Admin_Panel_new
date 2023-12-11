@@ -10,7 +10,7 @@ export const AdminContextProvider=({children})=>{
     const [service,setService]=useState({});
 
     const fetchTraderServices=async()=>{
-        const response=await fetch(`http://localhost:3500/allTraderServices`);
+        const response=await fetch(`http://191.101.14.6:3500/allTraderServices`);
         const res=await response.json();
         
         setTraderServices(res);  
@@ -24,7 +24,7 @@ export const AdminContextProvider=({children})=>{
 
         
         try {
-            const response=await fetch(`http://localhost:3500/active/${id}`,
+            const response=await fetch(`http://191.101.14.6:3500/active/${id}`,
             {
                 method: "PATCH",
                 headers: {
@@ -47,7 +47,7 @@ export const AdminContextProvider=({children})=>{
     }
     const activeUnactiveTraderServices=async(data,isAccept)=>{
         console.log(data);
-        const response=await fetch(`http://localhost:3500/setTraderServices/?isAccept=${isAccept}`,{
+        const response=await fetch(`http://191.101.14.6:3500/setTraderServices/?isAccept=${isAccept}`,{
             method:"PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const AdminContextProvider=({children})=>{
             }
     }
     const fetchSingleService=async(id)=>{
-        const response=await fetch(`http://localhost:3500/getService/${id}`);
+        const response=await fetch(`http://191.101.14.6:3500/getService/${id}`);
         const res=await response.json();
         
         setService(res[0]);

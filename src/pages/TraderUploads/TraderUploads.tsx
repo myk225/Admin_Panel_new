@@ -5,7 +5,7 @@ export const TraderUploads = ({isSubmitted,isAdmin}) => {
     const isUploaded=isSubmitted===0||isSubmitted===null? false: true;
     console.log(isAdmin,isUploaded);
     const formRef=useRef(null);
-    const [inputs,setInputs]=useState({docs1:"http://localhost:3500/uploads/basicFile.pdf"});
+    const [inputs,setInputs]=useState({docs1:"http://191.101.14.6:3500/uploads/basicFile.pdf"});
     const [open,setOpen]=useState(false);
     const handleChange=(e)=>{
         const fileType=e.target.value.split(".").pop();
@@ -35,7 +35,7 @@ export const TraderUploads = ({isSubmitted,isAdmin}) => {
         for( const pair of formData.entries()){
             console.log(`${pair[0]} : ${pair[1]}`)
         }
-        const response=await fetch(`http://localhost:3500/test/uploadingTest`,{
+        const response=await fetch(`http://191.101.14.6:3500/test/uploadingTest`,{
             method: "POST",
             headers:{
                 "Authorization":localStorage.getItem("token")
@@ -55,7 +55,7 @@ export const TraderUploads = ({isSubmitted,isAdmin}) => {
            <label htmlFor="">upload all docs herre</label>
            <div className="item">
            <label htmlFor="doc1">PDF FILE</label> <input type="file" onChange={handleChange} webkitdirectory name="docs1" id="docs1" accept="application/pdf" />
-            {/* <object data={`http://localhost:3500/uploads/basicFile.pdf`} type=""></object> */}
+            {/* <object data={`http://191.101.14.6:3500/uploads/basicFile.pdf`} type=""></object> */}
                 <button type="button" onClick={()=>setOpen(true)}>view</button>
            </div>
             <div className="item">
@@ -83,7 +83,7 @@ export const TraderUploads = ({isSubmitted,isAdmin}) => {
             isUploaded&&
             <>
             <div className="profile">
-                <object width='100%' height="100%" data="http://localhost:3500/uploads/basicFile.pdf" type=""></object>
+                <object width='100%' height="100%" data="http://191.101.14.6:3500/uploads/basicFile.pdf" type=""></object>
             </div>
             </>
         } */}

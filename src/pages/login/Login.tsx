@@ -14,7 +14,7 @@ export const Login = () => {
     console.log(inputs);
     let url;
    
-      url=`http://localhost:3500/admin/login`;
+      url=`http://191.101.14.6:3500/admin/login`;
     try {
       
      const response=await fetch(url,{

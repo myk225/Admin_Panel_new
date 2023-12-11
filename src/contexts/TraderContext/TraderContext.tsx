@@ -11,7 +11,7 @@ export const TraderContextProvider=({ children})=>{
     const authToken=localStorage.getItem("token");
     async function fetchTraderOrders(){
        
-        const response=await fetch(`http://localhost:3500/provider/orders`,{
+        const response=await fetch(`http://191.101.14.6:3500/provider/orders`,{
             method:"GET",
             headers:{
                 "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export const TraderContextProvider=({ children})=>{
         setTraderOrders(res);
     }
     async function acceptOrder(id,isAccept){
-        const response=await fetch(`http://localhost:3500/provider/trader/accept/${id}?isAccept=${isAccept}`,{
+        const response=await fetch(`http://191.101.14.6:3500/provider/trader/accept/${id}?isAccept=${isAccept}`,{
             method:"PATCH"
         });
         const res=await response.json();
@@ -35,7 +35,7 @@ export const TraderContextProvider=({ children})=>{
 
     }
     async function assignEmployee(inputs){
-        const response=await fetch(`http://localhost:3500/provider/trader/order/assignEmployee`,{
+        const response=await fetch(`http://191.101.14.6:3500/provider/trader/order/assignEmployee`,{
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const TraderContextProvider=({ children})=>{
     }
     async function fetchEmployees(){
         
-        const response=await fetch(`http://localhost:3500/provider/trader/employees`,{
+        const response=await fetch(`http://191.101.14.6:3500/provider/trader/employees`,{
             method:"GET",
             headers:{
                 "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export const TraderContextProvider=({ children})=>{
         setEmployees(res);
     }
     async function fetchRegisteredServices(){
-        const response=await fetch(`http://localhost:3500/provider/trader/registered/services`,{
+        const response=await fetch(`http://191.101.14.6:3500/provider/trader/registered/services`,{
             method:"GET",
             headers:{
                 "Content-Type": "application/json",
@@ -82,7 +82,7 @@ export const TraderContextProvider=({ children})=>{
         setRegisteredServices(res);
     }
     const getTraderServiceInfo=async(id)=>{
-        const response=await fetch(`http://localhost:3500/provider/getServiceInfo/${id}`,{
+        const response=await fetch(`http://191.101.14.6:3500/provider/getServiceInfo/${id}`,{
             method:"GET",
             headers:{
                 "Content-Type": "application/json",
@@ -99,12 +99,12 @@ export const TraderContextProvider=({ children})=>{
     }
     //get services according to sub category id
     const fetchSubCatServices=async(id)=>{
-        const response=await fetch(`http://localhost:3500/getServices/${id}`);
+        const response=await fetch(`http://191.101.14.6:3500/getServices/${id}`);
         const res=await response.json();
         setServices(res);
     }
     const requestService=async(inputs)=>{
-        const response=await fetch(`http://localhost:3500/provider/addTraderServices`,{
+        const response=await fetch(`http://191.101.14.6:3500/provider/addTraderServices`,{
             method: "POST",
             headers:{
                 "Content-Type": "application/json",
@@ -120,7 +120,7 @@ export const TraderContextProvider=({ children})=>{
     const activeEmployee=async(id,active)=>{
         let body={isActive:active};
         console.log(JSON.stringify(body));
-        const response=await fetch(`http://localhost:3500/provider/activateEmp/${id}`,{
+        const response=await fetch(`http://191.101.14.6:3500/provider/activateEmp/${id}`,{
             method:"PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -133,7 +133,7 @@ export const TraderContextProvider=({ children})=>{
     }
     const addEmployee=async(inputs)=>{
         console.log(inputs);
-        const response=await fetch(`http://localhost:3500/provider/addEmployee`,{
+        const response=await fetch(`http://191.101.14.6:3500/provider/addEmployee`,{
             method :"POST",
             headers:{
                 "Authorization":localStorage.getItem("token")

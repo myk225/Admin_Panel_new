@@ -16,7 +16,7 @@ export const AuthContext=(props)=>{
     
         let url;
         
-        url="http://localhost:3500/provider/trader/login"
+        url="http://191.101.14.6:3500/provider/trader/login"
       
        const response=await fetch(url,{
         method:"POST",

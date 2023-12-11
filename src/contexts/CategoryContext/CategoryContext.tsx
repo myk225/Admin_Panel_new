@@ -19,21 +19,21 @@ export const CategoryState=(props)=>{
        LoadServices();
     },[])
     const LoadCategories=async()=>{
-        const response=await fetch(` http://localhost:3500/getCategories`);
+        const response=await fetch(` http://191.101.14.6:3500/getCategories`);
         const res=await response.json();
         
         setCategory(res);  
         console.log("FETCHED categories");
     }
     const LoadSubCategories=async()=>{
-        const response=await fetch(` http://localhost:3500/getSubCategories`);
+        const response=await fetch(` http://191.101.14.6:3500/getSubCategories`);
         const res=await response.json();
         
         setSubCategory(res);  
         console.log("FETCHED Sub categories");
     }
     const LoadServices=async()=>{
-        const response=await fetch(`http://localhost:3500/getServices`);
+        const response=await fetch(`http://191.101.14.6:3500/getServices`);
         const res=await response.json();
         console.log(res);
         setServices(res);  
@@ -44,7 +44,7 @@ export const CategoryState=(props)=>{
 for (const pair of inputs.entries()) {
     console.log(`${pair[0]}, ${pair[1]}`);
   }
-        const response=await fetch(`http://localhost:3500/updateCategory`,{
+        const response=await fetch(`http://191.101.14.6:3500/updateCategory`,{
             method:"PATCH",
             body:inputs
         })
@@ -65,7 +65,7 @@ for (const pair of inputs.entries()) {
 
     }
     const AddServices=async(inputs)=>{
-        const response=await fetch(`http://localhost:3500/addServices`,{
+        const response=await fetch(`http://191.101.14.6:3500/addServices`,{
             method:"POST",
             body:inputs
         });
@@ -74,7 +74,7 @@ for (const pair of inputs.entries()) {
         LoadServices();
     }
     const AddCategories=async(inputs)=>{
-        const response=await fetch(`http://localhost:3500/addCategories`,{
+        const response=await fetch(`http://191.101.14.6:3500/addCategories`,{
             method:"POST",
             body:inputs
         });
@@ -91,7 +91,7 @@ for (const pair of inputs.entries()) {
         }
     }
     const LoadTraders=async()=>{
-        const response=await fetch(`http://localhost:3500/getAllTraders`);
+        const response=await fetch(`http://191.101.14.6:3500/getAllTraders`);
         const res=await response.json();
         
         if(res.status===200){
@@ -102,7 +102,7 @@ for (const pair of inputs.entries()) {
         }
     }
     const LoadNewTraders=async()=>{
-        const response=await fetch(`http://localhost:3500/getAllNewTraders`);
+        const response=await fetch(`http://191.101.14.6:3500/getAllNewTraders`);
         const res=await response.json();
         
         if(res.status===200){
