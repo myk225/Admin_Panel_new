@@ -7,6 +7,8 @@ export const TraderProfile = () => {
   
   
   let isAdmin=localStorage.getItem("isAdmin");
+  let isTrader=localStorage.getItem("isTrader");
+  
     const {id}=useParams();
     const [open,setOpen]=useState(false);
     const [open2,setOpen2]=useState(false);
@@ -18,7 +20,9 @@ export const TraderProfile = () => {
      const [user_details,setUser_details]=useState(JSON.parse(localStorage.getItem("user"))??{isSubmitted:0});
      let {isAccepted,isActive,isSubmitted}=JSON.parse(localStorage.getItem("user"))??user_details;
      
-      
+     console.log(user_details["doc_1"]);
+     var x=(isSubmitted===1)
+     console.log(x)
  
     const modalRef=useRef(null);
 
@@ -62,7 +66,7 @@ export const TraderProfile = () => {
             </div>
             <hr />
             {
-              isSubmitted===0?
+              isSubmitted===0||isSubmitted===null?
               <TraderUploads isSubmitted={isSubmitted} isAdmin={isAdmin}/>:
               <div className="list">
               <div className="select" id="" onClick={()=>setOpen(true)}>
@@ -115,7 +119,8 @@ export const TraderProfile = () => {
          </div>
         }
        {
-        isAdmin&&isSubmitted==1 ? <div className="Admin--Actions">
+       (isAdmin==="true")&&isSubmitted===1 ? 
+       <div className="Admin--Actions">
         Admin action form
         <form onSubmit={handleSubmit}>
           <button className="select">Accept the Above documents</button>
@@ -123,9 +128,12 @@ export const TraderProfile = () => {
 
         </form>
        </div>:
-
+        (isTrader==="true")&&isSubmitted===0?
         <div className="Admin--Actions">
           <h2>Trader did not upload docs</h2>
+        </div>:
+        <div>
+          hello wait until admin verifies u
         </div>
 
        }

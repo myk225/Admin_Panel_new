@@ -33,8 +33,33 @@ import { TraderProfile } from "./pages/TraderProfile/TraderProfile";
 import { useContext } from "react";
 import { UpdateProfileForm } from "./components/UpdateProfileForm/UpdateProfileForm";
 // let isSubmitted=true,isActive=true;
-let {isAccepted,isActive,isSubmitted}=JSON.parse(localStorage.getItem("user"))??"0";
-console.log(typeof isAccepted,"hello");
+
+
+
+
+
+
+function App() {
+  const {currentUser,currentUser1}=useContext(Authentication);
+  console.log(currentUser,currentUser1);
+  const Layout=()=>{
+    return(
+      <div className="main">
+          <NavBar/>
+          <div className="container">
+            <div className="menuContainer">
+            <Menu slug={isActive===0?false:true} />
+            </div>
+            <div className="contentContainer">
+                <Outlet/>
+              </div>
+          </div>
+        <Footer/>
+      </div>
+    )
+  }
+  let {isAccepted,isActive,isSubmitted}=JSON.parse(localStorage.getItem("user"))||currentUser||{isAccepted:0,isActive:0,isSubmitted:0};
+console.log(isSubmitted,"hello");
 const ProtectedRoute=({children})=>{
   const isAdmin=localStorage.getItem("isAdmin");
   
@@ -67,35 +92,26 @@ const TraderProtectedRoute=({children})=>{
     <Footer/>
   </div>
      
-    }else if(isSubmitted===false){
+    }else if(isSubmitted===0||isSubmitted===null){
       <Navigate to="/trader/documents"/>
+      return  <div className="main">
+      <NavBar/>
+      <div className="container">
+        <div className="menuContainer">
+        <Menu slug={isActive===0?false:true}/>
+        </div>
+        <div className="contentContainer">
+        <TraderProfile/>
+          </div>
+      </div>
+    <Footer/>
+  </div>
     }
     
   }else{
     return <Navigate to="/trader/login"/>
   }
 }
-const Layout=()=>{
-  return(
-    <div className="main">
-        <NavBar/>
-        <div className="container">
-          <div className="menuContainer">
-          <Menu slug={isActive===0?false:true} />
-          </div>
-          <div className="contentContainer">
-              <Outlet/>
-            </div>
-        </div>
-      <Footer/>
-    </div>
-  )
-}
-
-
-
-function App() {
-  
   const router = createBrowserRouter([
     {
       path: "/",
@@ -143,14 +159,21 @@ function App() {
         },{
           path:"/admin/orders",
           element:<Orders/>
+        },{
+          path:"/admin/orders/orderdetails/:id",
+          element: <OrderDetailsPage order_id={123}/>
         }
       ]
     },{
       path:"/trader",
       element: <TraderProtectedRoute ><Layout/></TraderProtectedRoute>,
-      children:[
+      children:[{
+        path: "/trader",
+        element: <>{ localStorage.getItem("isTrader")&&<Navigate to="/trader/dashboard"/>}
+        </>  
+      },
         {
-          path:"/trader",
+          path:"/trader/dashboard",
           element:<Home/>
         },{
           path:"/trader/orders",
@@ -210,8 +233,7 @@ function App() {
     }
   ]);
  
-  const {currentUser,currentUser1}=useContext(Authentication);
-  console.log(currentUser,currentUser1);
+ 
   return (
       <OrderContextProvider>
 

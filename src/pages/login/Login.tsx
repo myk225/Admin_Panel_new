@@ -30,7 +30,7 @@ export const Login = () => {
       localStorage.setItem("isAdmin",inputs.isAdmin.toString());
       localStorage.setItem("isTrader",(!inputs.isAdmin).toString())
       alert(res.message);
-     inputs.isAdmin? navigate("/admin") : navigate("/trader")
+     navigate("/admin")
      }else{
       alert(res.message)
      }

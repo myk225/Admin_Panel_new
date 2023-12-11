@@ -13,7 +13,9 @@ export const TraderLogin = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault();
     console.log(inputs);
-    logIn(inputs)
+    await logIn(inputs)
+    
+     navigate("/trader/dashboard")
     
   }
   const handleSwitch=()=>{

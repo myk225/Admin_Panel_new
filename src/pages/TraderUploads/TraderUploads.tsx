@@ -1,7 +1,9 @@
 import { useRef, useState } from "react";
 import './upload.scss'
 export const TraderUploads = ({isSubmitted,isAdmin}) => {
-    const isUploaded=isSubmitted===0? false: true;
+    
+    const isUploaded=isSubmitted===0||isSubmitted===null? false: true;
+    console.log(isAdmin,isUploaded);
     const formRef=useRef(null);
     const [inputs,setInputs]=useState({docs1:"http://localhost:3500/uploads/basicFile.pdf"});
     const [open,setOpen]=useState(false);
@@ -47,7 +49,7 @@ export const TraderUploads = ({isSubmitted,isAdmin}) => {
   return (
     <div className="uploadMain">
         {
-            !isUploaded&&isAdmin===0 &&
+            !(isUploaded&&isAdmin===0) &&
             <>
                 <form ref={formRef} className="uploadForm">
            <label htmlFor="">upload all docs herre</label>

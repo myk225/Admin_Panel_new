@@ -101,8 +101,20 @@ for (const pair of inputs.entries()) {
             alert(res.message);
         }
     }
+    const LoadNewTraders=async()=>{
+        const response=await fetch(`http://localhost:3500/getAllNewTraders`);
+        const res=await response.json();
+        
+        if(res.status===200){
+            const filteredTraders=res.allNewTraders.filter((item)=>item.isAccepted!==1);
+            setTraders(filteredTraders);
+        }else{
+            alert(res.message);
+        }
+    }
+    
             return(
-                <CategoryContext.Provider value={{AddCategories,LoadCategories,LoadSubCategories,subCategory,EditCategories,category,message,services,AddServices,LoadTraders,traders}}>
+                <CategoryContext.Provider value={{AddCategories,LoadCategories,LoadSubCategories,subCategory,EditCategories,category,message,services,AddServices,LoadTraders,traders,LoadNewTraders}}>
                         {props.children}
                 </CategoryContext.Provider>
             )

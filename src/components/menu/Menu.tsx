@@ -12,8 +12,8 @@ export const Menu=({slug})=>{
         localStorage.removeItem('isAdmin');
         localStorage.removeItem('isTrader');
         localStorage.removeItem('user');
-        // window.location.reload(false);
-        navigate('/login');
+        window.location.reload(false);
+        // navigate('/login');
     }
         return(
 

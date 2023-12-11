@@ -1,10 +1,12 @@
 import { createContext, useEffect, useState } from "react"
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const Authentication=createContext({});
 
 export const AuthContext=(props)=>{
+    
     let currentUser1={};
+
     const [currentUser,setCurrentUser]=useState(JSON.parse(localStorage.getItem("user"))||null);
     useEffect(()=>{
         localStorage.setItem("user",JSON.stringify(currentUser));
@@ -32,7 +34,7 @@ export const AuthContext=(props)=>{
         localStorage.setItem("isAdmin",inputs.isAdmin.toString());
         localStorage.setItem("isTrader",(!inputs.isAdmin).toString())
         alert(res.message);
-       inputs.isAdmin? Navigate("/admin") : Navigate("/trader")
+        return true;
        }else{
         alert(res.message)
        }
