@@ -30,6 +30,7 @@ const columns:GridColDef[]=[
 ]
 export const TraderServices = () => {
     const {traderServices,fetchTraderServices}=useContext(AdminContext);
+    
     const [open,setOpen]=useState(false);
     useEffect(() => {
       fetchTraderServices();

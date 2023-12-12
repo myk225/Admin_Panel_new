@@ -6,6 +6,7 @@ import { AdminContext } from "../../contexts/AdminContext/AdminContext";
 import { AcceptService } from "../../components/AdminServiceApproval/AcceptService";
 import { TraderContext } from "../../contexts/TraderContext/TraderContext";
 import { Edit } from "../../components/edit/edit";
+import { useSearchParams } from "react-router-dom";
 // we need all the sub categories in order to add services
 const columns:GridColDef[]=[
     {field:"id",headerName:"id"},
@@ -28,8 +29,12 @@ const columns:GridColDef[]=[
         field:"duration",headerName:"Duration"
     }
 ]
+
 export const TraderRegisteredServices = () => {
     const {registeredServices,fetchRegisteredServices}=useContext(TraderContext);
+    const [searchParams] = useSearchParams();
+    console.log(searchParams.get('name'));
+   
     const [open,setOpen]=useState(false);
     useEffect(() => {
       fetchRegisteredServices();
