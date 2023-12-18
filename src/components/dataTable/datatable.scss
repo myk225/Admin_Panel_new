@@ -1,0 +1,41 @@
+.datatable{
+    .width{
+        width: 100%;
+        overflow: scroll;
+    }
+    // width: 85%;
+    // display: flex;
+    // justify-content: center;
+    .datagrid{
+        background: white;
+        padding: 20px;
+        // overflow-x: auto;
+        // width: 100%;
+        .MuiDataGrid-toolbarContainer{
+            flex-direction: row-reverse;
+        }
+
+        img{
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        span{
+            font-size: 14px;
+            font-weight: bold;
+            
+        }
+        .action{
+            display: flex;
+            gap:15px;
+
+            img{
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+}
